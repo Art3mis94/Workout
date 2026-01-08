@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Routine — Toning & Languages</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root {
+    --primary: #2E86C1;
+    --bg: #f4f7f6;
+    --card: #ffffff;
+    --text: #333;
+    --accent: #d35400;
+    --study: #8E44AD; 
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+  }
+  /* Standardized active link style */
+  nav a.active {
+    color: var(--study) !important;
+  }
+  
+  h1 { color: var(--primary); margin-bottom: 5px; }
+  .subtitle { color: #666; margin-bottom: 25px; }
+
+  section {
+    background: var(--card);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .meal-slot {
+    font-weight: bold;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+  }
+  .study-slot {
+    font-weight: bold;
+    color: var(--study);
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+  }
+  .food-item, .study-item {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+  }
+  .learning-card {
+    border-left: 5px solid var(--study);
+    background: #fdfaff;
+  }
+  .training-card {
+    background: #ebf5fb; 
+    border-left: 5px solid var(--primary);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Timing</a>
+  <a href="plan.html">Diet Plan</a>
+  <a href="list.html">Shopping</a>
+  <a href="workout.html">Workout</a>
+  <a href="routine.html" class="active">★ Language Learning</a>
+</nav>
+
+<h1>Daily Routine</h1>
+<p class="subtitle">The 8-hour language split integrated with your toning schedule.</p>
+
+<section>
+  <span class="meal-slot">08:00 AM — Breakfast</span>
+  <div class="food-item">Poached Eggs (2-3) on 2 slices Wholemeal Toast</div>
+</section>
+
+<section class="learning-card">
+  <span class="study-slot">08:30 AM — Russian Foundation (2 Hours)</span>
+  <div class="study-item">🇷🇺 <b>Duolingo:</b> Focus on Cyrillic & Grammar units.</div>
+</section>
+
+<section class="learning-card">
+  <span class="study-slot">11:00 AM — Spanish Foundation (2 Hours)</span>
+  <div class="study-item">🇪🇸 <b>Google Learn/Gemini:</b> Sentence structure & Verb drills.</div>
+</section>
+
+<section>
+  <span class="meal-slot">01:00 PM — Lunch</span>
+  <div class="food-item">Tuna Sandwich on Wholemeal Bread</div>
+</section>
+
+<section class="learning-card">
+  <span class="study-slot">01:30 PM — Spanish Practice (1 Hour)</span>
+  <div class="study-item">📱 <b>Google Translate:</b> Conversation & Voice mode.</div>
+</section>
+
+<section class="learning-card">
+  <span class="study-slot">02:30 PM — Russian Immersion (1 Hour)</span>
+  <div class="study-item">📺 <b>YouTube:</b> Listening practice & Cultural videos.</div>
+</section>
+
+<section style="border-left: 5px solid var(--accent);">
+  <span class="meal-slot" style="color: var(--accent);">03:30 PM — Pre-Workout Fuel</span>
+  <div class="food-item">🥣 Fueling Porridge (Oats, Milk, & Berries)</div>
+</section>
+
+<section class="learning-card">
+  <span class="study-slot">04:00 PM — Spanish Immersion (1 Hour)</span>
+  <div class="study-item">🎧 <b>Audio:</b> Spanish music or podcasts while prepping.</div>
+</section>
+
+<section class="training-card">
+  <span class="meal-slot">05:00 PM — Workout Window</span>
+  <div class="food-item"><b>Toning Routine:</b> Consistent intensity with Barbell/EZ-Bar.</div>
+</section>
+
+<section class="learning-card">
+  <span class="study-slot">06:30 PM — Daily Review (1 Hour)</span>
+  <div class="study-item">📝 <b>Google Docs:</b> Journaling in target languages.</div>
+</section>
+
+<section>
+  <span class="meal-slot">07:30 PM — Post-Workout Dinner</span>
+  <div class="food-item">Lean Beef Mince Bowl OR Grilled Chicken + Greens</div>
+</section>
+
+</body>
+</html>
