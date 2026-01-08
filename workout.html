@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Barbell & EZ-Bar Toning Plan</title>
+<title>Workout Plan — Toning Focus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   :root {
@@ -10,6 +10,8 @@
     --bg: #f4f7f6;
     --card: #ffffff;
     --text: #333;
+    --accent: #d35400;
+    --study: #8E44AD; 
   }
   body {
     font-family: Arial, sans-serif;
@@ -27,14 +29,16 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
   }
   nav a {
     text-decoration: none;
     color: var(--primary);
     font-weight: bold;
   }
-  nav a:hover {
-    text-decoration: underline;
+  /* Style for the active/star link */
+  nav a.active {
+    color: var(--study) !important;
   }
 
   h1 { color: var(--primary); margin-bottom: 10px; }
@@ -52,10 +56,13 @@
     color: var(--primary);
     border-bottom: 1px solid #eee;
     padding-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
   }
   ul { list-style: none; padding: 0; }
   li {
-    padding: 8px 0;
+    padding: 10px 0;
     display: flex;
     align-items: center;
     border-bottom: 1px solid #f9f9f9;
@@ -63,15 +70,16 @@
   li:last-child { border-bottom: none; }
   
   input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     margin-right: 12px;
     cursor: pointer;
   }
+
   .reset-btn {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     background: #e74c3c;
     color: white;
     border: none;
@@ -79,6 +87,7 @@
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
+    font-size: 1em;
   }
 </style>
 </head>
@@ -86,13 +95,14 @@
 
 <nav>
   <a href="index.html">Timing</a>
-  <a href="workout.html">Workout</a>
-  <a href="list.html">Shopping</a>
   <a href="plan.html">Diet Plan</a>
+  <a href="list.html">Shopping</a>
+  <a href="workout.html">Workout</a>
+  <a href="routine.html" class="active">★ Language Learning</a>
 </nav>
 
 <h1>Barbell & EZ-Bar Toning</h1>
-<p class="subtitle">Your progress is saved automatically. Boxes will stay checked even after refreshing.</p>
+<p class="subtitle">Your progress is saved automatically. Focus on intensity for every rep.</p>
 
 <section>
   <h3>Day 1: Upper Push</h3>
@@ -143,18 +153,18 @@
   </ul>
 </section>
 
-<button class="reset-btn" onclick="clearProgress()">Reset All Checkboxes</button>
+<button class="reset-btn" onclick="clearWorkoutProgress()">Reset All Checkboxes</button>
 
 <script>
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
   function saveState() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(cb => {
       localStorage.setItem(cb.id, cb.checked);
     });
   }
 
   function loadState() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(cb => {
       const savedState = localStorage.getItem(cb.id);
       if (savedState === 'true') {
@@ -163,14 +173,17 @@
     });
   }
 
-  function clearProgress() {
-    if(confirm("Reset all progress for the week?")) {
-      localStorage.clear();
+  function clearWorkoutProgress() {
+    if(confirm("Reset all workout progress for the week?")) {
+      checkboxes.forEach(cb => {
+        cb.checked = false;
+        localStorage.removeItem(cb.id);
+      });
       location.reload();
     }
   }
 
-  document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+  checkboxes.forEach(cb => {
     cb.addEventListener('change', saveState);
   });
 
