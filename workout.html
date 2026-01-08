@@ -22,7 +22,6 @@
     padding: 20px;
   }
   
-  /* Nav Bar Styling */
   nav {
     display: flex;
     gap: 15px;
@@ -36,7 +35,6 @@
     color: var(--primary);
     font-weight: bold;
   }
-  /* Style for the active/star link */
   nav a.active {
     color: var(--study) !important;
   }
@@ -89,6 +87,15 @@
     margin-top: 20px;
     font-size: 1em;
   }
+  .tag {
+    font-size: 0.75em;
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    color: #666;
+    font-weight: bold;
+  }
 </style>
 </head>
 <body>
@@ -101,14 +108,15 @@
   <a href="routine.html" class="active">★ Language Learning</a>
 </nav>
 
-<h1>Barbell & EZ-Bar Toning</h1>
-<p class="subtitle">Your progress is saved automatically. Focus on intensity for every rep.</p>
+<h1>Toning: Mixed Equipment Plan</h1>
+<p class="subtitle">Barbell, EZ-Bar, and Dumbbell integration for maximum muscle definition.</p>
 
 <section>
   <h3>Day 1: Upper Push</h3>
   <ul>
     <li><input type="checkbox" id="up-1"> Barbell Floor Press – 4×8–10</li>
     <li><input type="checkbox" id="up-2"> Standing Barbell OH Press – 3×10</li>
+    <li><input type="checkbox" id="up-db-1"> DB Lateral Raises – 3×15 <span class="tag">DB</span></li>
     <li><input type="checkbox" id="up-3"> EZ-Bar Upright Rows – 3×12</li>
     <li><input type="checkbox" id="up-4"> EZ-Bar Skull Crushers – 3×12</li>
   </ul>
@@ -119,7 +127,7 @@
   <ul>
     <li><input type="checkbox" id="lb-1"> Barbell Back Squats – 4×10</li>
     <li><input type="checkbox" id="lb-2"> Barbell Zercher Squats – 3×12</li>
-    <li><input type="checkbox" id="lb-3"> Barbell Reverse Lunges – 3×10/leg</li>
+    <li><input type="checkbox" id="lb-db-1"> DB Bulgarian Split Squats – 3×10/leg <span class="tag">DB</span></li>
     <li><input type="checkbox" id="lb-4"> Barbell Calf Raises – 4×20</li>
   </ul>
 </section>
@@ -128,9 +136,10 @@
   <h3>Day 4: Upper Pull</h3>
   <ul>
     <li><input type="checkbox" id="pull-1"> Barbell Bent-over Rows – 4×10</li>
+    <li><input type="checkbox" id="pull-db-1"> DB Single-Arm Rows – 3×12/arm <span class="tag">DB</span></li>
     <li><input type="checkbox" id="pull-2"> EZ-Bar Underhand Rows – 3×12</li>
     <li><input type="checkbox" id="pull-3"> EZ-Bar Bicep 21s – 3 Sets</li>
-    <li><input type="checkbox" id="pull-4"> Barbell Reverse Curls – 3×12</li>
+    <li><input type="checkbox" id="pull-db-2"> DB Hammer Curls – 3×12 <span class="tag">DB</span></li>
   </ul>
 </section>
 
@@ -139,7 +148,7 @@
   <ul>
     <li><input type="checkbox" id="gl-1"> Barbell RDLs – 4×10</li>
     <li><input type="checkbox" id="gl-2"> Barbell Hip Thrusts – 4×12</li>
-    <li><input type="checkbox" id="gl-3"> EZ-Bar Good Mornings – 3×12</li>
+    <li><input type="checkbox" id="gl-db-1"> DB Goblet Squats (Slow Tempo) – 3×15 <span class="tag">DB</span></li>
     <li><input type="checkbox" id="gl-4"> Leg Raises (Barbell Held Overhead) – 3×15</li>
   </ul>
 </section>
@@ -149,6 +158,7 @@
   <ul>
     <li><input type="checkbox" id="fb-1"> Barbell Thrusters – 12 reps</li>
     <li><input type="checkbox" id="fb-2"> Barbell Clean & Press – 10 reps</li>
+    <li><input type="checkbox" id="fb-db-1"> DB Renegade Rows – 12 total <span class="tag">DB</span></li>
     <li><input type="checkbox" id="fb-3"> EZ-Bar Curls (Burnout) – 15 reps</li>
   </ul>
 </section>
