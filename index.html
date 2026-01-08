@@ -2,51 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Daily Timing & Nutrition — 16-Day Plan</title>
+<title>Daily Timing — Toning Schedule</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-}
-h1, h2, h3 {
-  color: #2E86C1;
-}
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-li {
-  margin-bottom: 6px;
-}
-input[type=checkbox] {
-  margin-right: 10px;
-}
-section {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-.time {
-  font-weight: bold;
-  color: #1B4F72;
-}
-nav {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-nav a {
-  text-decoration: none;
-  color: #2E86C1;
-  font-weight: bold;
-}
-nav a:hover {
-  text-decoration: underline;
-}
+  :root {
+    --primary: #2E86C1;
+    --bg: #f4f7f6;
+    --card: #ffffff;
+    --text: #333;
+    --accent: #d35400;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+  }
+  h1 { color: var(--primary); margin-bottom: 5px; }
+  .subtitle { color: #666; margin-bottom: 25px; }
+
+  .time-block {
+    background: var(--card);
+    border-left: 5px solid var(--primary);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .time-label { font-weight: bold; color: var(--primary); min-width: 80px; }
+  .activity { flex-grow: 1; padding-left: 15px; }
+  .activity-title { font-weight: bold; display: block; }
+  .activity-desc { font-size: 0.9em; color: #666; }
+
+  /* Tips Styling */
+  .tips-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #d4e6f1;
+  }
+  .tips-section h3 { color: var(--primary); margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+  .tip-item { margin-bottom: 15px; display: flex; align-items: flex-start; }
+  .tip-icon { margin-right: 15px; font-size: 1.2em; }
+  .tip-text b { color: var(--accent); }
+  
+  input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -58,86 +76,66 @@ nav a:hover {
   <a href="plan.html">Diet Plan</a>
 </nav>
 
-<h1>Daily Timing & Nutrition Checklist</h1>
+<h1>Daily Schedule</h1>
+<p class="subtitle">Optimize your performance and recovery.</p>
 
-<section>
-<h2>Training Window (Reference)</h2>
-<ul>
-<li><input type="checkbox"> <span class="time">Primary workout time: 17:30–18:45</span></li>
-<li><input type="checkbox"> Optional black coffee: 16:00–17:30</li>
-<li><input type="checkbox"> Dinner / post-workout meal: 18:00–20:00</li>
-<li><input type="checkbox"> Cardio-only days: 16:30–17:30</li>
-</ul>
-</section>
+<div class="timeline">
+  <div class="time-block">
+    <div class="time-label">08:00</div>
+    <div class="activity"><span class="activity-title">Breakfast</span><span class="activity-desc">Eggs & Wholemeal Toast</span></div>
+    <input type="checkbox" id="t-1">
+  </div>
 
-<section>
-<h2>Sleep & Recovery</h2>
-<ul>
-<li><input type="checkbox"> Sleep 7–8 hours per night (00:00–01:00 bedtime is fine)</li>
-<li><input type="checkbox"> Keep wake-up time consistent</li>
-<li><input type="checkbox"> Avoid caffeine after 17:30</li>
-<li><input type="checkbox"> Light movement on rest days</li>
-</ul>
-</section>
+  <div class="time-block">
+    <div class="time-label">12:30</div>
+    <div class="activity"><span class="activity-title">Lunch</span><span class="activity-desc">Tuna Sandwich (High Protein)</span></div>
+    <input type="checkbox" id="t-2">
+  </div>
 
-<section>
-<h2>Meal Timing</h2>
-<ul>
-<li><input type="checkbox"> 07:00–09:00: Breakfast + coffee</li>
-<li><input type="checkbox"> 12:00–14:00: Lunch</li>
-<li><input type="checkbox"> 16:00–17:30: Optional black coffee or light protein</li>
-<li><input type="checkbox"> 18:00–20:00: Dinner (post-workout on training days)</li>
-<li><input type="checkbox"> After 20:00: Protein-only if needed</li>
-</ul>
-</section>
+  <div class="time-block" style="border-left-color: var(--accent);">
+    <div class="time-label">15:30</div>
+    <div class="activity"><span class="activity-title">Fueling Window</span><span class="activity-desc">50g Oats + 80g Berries + Milk</span></div>
+    <input type="checkbox" id="t-3">
+  </div>
 
-<section>
-<h2>Daily Nutrition Targets</h2>
-<ul>
-<li><input type="checkbox"> Calories: ~2,200–2,300/day</li>
-<li><input type="checkbox"> Protein: 160–180g/day</li>
-<li><input type="checkbox"> Carbs: Moderate, focused around training window</li>
-<li><input type="checkbox"> Fats: Moderate, from eggs, meat, milk</li>
-<li><input type="checkbox"> Water: 2.5–3.5L/day</li>
-</ul>
-</section>
+  <div class="time-block" style="background: var(--primary); color: white;">
+    <div class="time-label" style="color: white;">17:30</div>
+    <div class="activity"><span class="activity-title">Training Window</span><span class="activity-desc" style="color: #e0e0e0;">Barbell & EZ-Bar Session</span></div>
+    <input type="checkbox" id="t-4">
+  </div>
 
-<section>
-<h2>Sample Day of Eating</h2>
-<ul>
-<li><input type="checkbox"> Breakfast: Oats + milk + berries + coffee</li>
-<li><input type="checkbox"> Lunch: Chicken (200g) + veg OR Tuna + mayo + bread</li>
-<li><input type="checkbox"> Mid-afternoon: 2 eggs, milk, or tuna (optional)</li>
-<li><input type="checkbox"> Dinner: Beef mince or chicken + protein noodles + veg</li>
-<li><input type="checkbox"> Evening (if needed): Tuna or eggs</li>
-</ul>
-</section>
+  <div class="time-block">
+    <div class="time-label">19:00</div>
+    <div class="activity"><span class="activity-title">Dinner</span><span class="activity-desc">Beef/Chicken + Spinach + Sides</span></div>
+    <input type="checkbox" id="t-5">
+  </div>
+</div>
 
-<section>
-<h2>Weekly Shopping List</h2>
-<ul>
-<li><input type="checkbox"> Chicken breast – 1.5–2 kg</li>
-<li><input type="checkbox"> Lean beef mince – 1 kg</li>
-<li><input type="checkbox"> Eggs – 24 pack</li>
-<li><input type="checkbox"> Tuna – 6–8 tins</li>
-<li><input type="checkbox"> Protein egg noodles</li>
-<li><input type="checkbox"> Stir-fry vegetables</li>
-<li><input type="checkbox"> Oats</li>
-<li><input type="checkbox"> Frozen berries</li>
-<li><input type="checkbox"> Whole milk</li>
-<li><input type="checkbox"> Optional: salmon fillets, turkey mince</li>
-</ul>
-</section>
+<div class="tips-section">
+  <h3>Performance & Tone Tips</h3>
+  
+  <div class="tip-item">
+    <div class="tip-icon">☕</div>
+    <div class="tip-text"><b>Caffeine Cut-off:</b> Stop all caffeine by <b>14:00</b>. Since you train at 17:30, caffeine later than this will ruin your deep sleep, which is when toning actually happens. Limit to <b>2 coffees max</b> per day.</div>
+  </div>
 
-<section>
-<h2>Look-Your-Best Notes</h2>
-<ul>
-<li><input type="checkbox"> Prioritise sleep over extra cardio</li>
-<li><input type="checkbox"> Keep sodium consistent day to day</li>
-<li><input type="checkbox"> Avoid alcohol during the 16 days</li>
-<li><input type="checkbox"> Maintain upright posture throughout the day</li>
-</ul>
-</section>
+  <div class="tip-item">
+    <div class="tip-icon">💧</div>
+    <div class="tip-text"><b>Salt & Water:</b> If you feel "flat" during your workout, add a small pinch of salt to your pre-workout oats. Aim for <b>3L of water</b> to keep muscles looking full rather than soft.</div>
+  </div>
+
+  <div class="tip-item">
+    <div class="tip-icon">🚶</div>
+    <div class="tip-text"><b>The 10-Min Rule:</b> After your 19:00 dinner, take a <b>10-minute light walk</b>. This improves insulin sensitivity, helping your body send the dinner nutrients to your muscles instead of storing them as fat.</div>
+  </div>
+</div>
+
+<script>
+  function save() { document.querySelectorAll('input[type="checkbox"]').forEach(cb => localStorage.setItem(cb.id, cb.checked)); }
+  function load() { document.querySelectorAll('input[type="checkbox"]').forEach(cb => { if (localStorage.getItem(cb.id) === 'true') cb.checked = true; }); }
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener('change', save));
+  window.onload = load;
+</script>
 
 </body>
 </html>
