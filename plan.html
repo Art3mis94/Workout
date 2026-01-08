@@ -2,55 +2,95 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Daily Diet Plan</title>
+<title>Meal Plan — Toning Focus</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-}
-h1, h2, h3 {
-  color: #2E86C1;
-}
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-li {
-  margin-bottom: 6px;
-}
-input[type=checkbox] {
-  margin-right: 10px;
-}
-section {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-nav {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-nav a {
-  text-decoration: none;
-  color: #2E86C1;
-  font-weight: bold;
-}
-nav a:hover {
-  text-decoration: underline;
-}
-.portion {
-  font-weight: bold;
-  color: #1B4F72;
-}
-.note {
-  font-size: 0.9em;
-  color: #555;
-}
+  :root {
+    --primary: #2E86C1;
+    --bg: #f4f7f6;
+    --card: #ffffff;
+    --text: #333;
+    --accent: #d35400;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+  }
+  h1 { color: var(--primary); }
+  section {
+    background: var(--card);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  .meal-slot {
+    font-weight: bold;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+  }
+  .food-item {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  .measurement {
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  details {
+    background: #f9f9f9;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px dashed var(--primary);
+    margin-top: 10px;
+  }
+  summary {
+    font-weight: bold;
+    color: var(--primary);
+    cursor: pointer;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:after {
+    content: ' (Tap for Recipe & Sides)';
+    font-size: 0.8em;
+    font-weight: normal;
+    color: var(--accent);
+  }
+  .recipe-content {
+    margin-top: 10px;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #444;
+  }
+  .recipe-content b { color: #000; }
+  .sides {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+    color: #2E4053;
+  }
 </style>
 </head>
 <body>
@@ -62,115 +102,60 @@ nav a:hover {
   <a href="plan.html">Diet Plan</a>
 </nav>
 
-<h1>Daily Diet Plan</h1>
-<p class="note">
-Target: ~2,200–2,300 kcal · Protein 160–180g · Training window 17:30–18:45
-</p>
+<h1>Daily Toning Meal Plan</h1>
 
 <section>
-<h2>Breakfast (07:00–09:00)</h2>
-<ul>
-<li>
-<input type="checkbox">
-<strong>Primary option:</strong> Porridge bowl  
-<br>
-<span class="portion">60–70g oats</span> +  
-<span class="portion">250ml whole milk</span> +  
-<span class="portion">75–100g frozen berries</span>
-</li>
-
-<li>
-<input type="checkbox">
-<strong>Swap option:</strong> Poached eggs on toast  
-<br>
-<span class="portion">2–3 large eggs</span> +  
-<span class="portion">1–2 slices wholemeal bread</span>
-</li>
-</ul>
-<p class="note">Choose one option. Both give similar calories.</p>
+  <span class="meal-slot">Breakfast</span>
+  <div class="food-item">Poached Eggs (2-3) on 2 slices Wholemeal Toast</div>
 </section>
 
 <section>
-<h2>Lunch (12:00–14:00)</h2>
-<ul>
-<li>
-<input type="checkbox">
-<strong>Tuna sandwich:</strong>  
-<br>
-<span class="portion">1 tin tuna (120–145g drained)</span>  
-+ <span class="portion">1–2 slices wholemeal bread</span>  
-+ <span class="portion">1–2 tsp mayo</span>
-</li>
-</ul>
-<p class="note">
-If especially hungry: add 1 extra slice of bread OR 1 boiled/poached egg.
-</p>
+  <span class="meal-slot">Lunch</span>
+  <div class="food-item">Tuna Sandwich on Wholemeal Bread</div>
 </section>
 
 <section>
-<h2>Pre-Workout (16:00–17:30)</h2>
-<ul>
-<li><input type="checkbox"> Black coffee (optional)</li>
-<li>
-<input type="checkbox">
-If hungry:  
-<span class="portion">1 slice bread</span> OR  
-<span class="portion">1 egg</span>
-</li>
-</ul>
-<p class="note">
-Optional: Kit-Kat Chunky here on hard days (counts as carbs).
-</p>
+  <span class="meal-slot">Pre-Workout (3:30 PM - 4:30 PM)</span>
+  <div class="food-item">Fueling Porridge:</div>
+  <ul style="list-style: none; padding-left: 0;">
+    <li>🥣 <span class="measurement">50g</span> Porridge Oats</li>
+    <li>🥛 <span class="measurement">250ml–300ml</span> Milk (Semi-skimmed or Unsweetened Almond)</li>
+    <li>🫐 <span class="measurement">80g</span> Frozen Mixed Berries</li>
+  </ul>
 </section>
 
 <section>
-<h2>Dinner / Post-Workout (18:00–20:00)</h2>
-<ul>
-<li>
-<input type="checkbox">
-<strong>Chicken noodle stir-fry:</strong>  
-<br>
-<span class="portion">200–250g chicken breast</span>  
-+ <span class="portion">75–100g protein egg noodles (dry)</span>  
-+ <span class="portion">1–2 cups stir-fry veg</span>  
-+ <span class="portion">Katsu sauce (measured)</span>
-</li>
+  <span class="meal-slot">Post-Workout Dinner (7:00 PM)</span>
+  <div class="food-item">Choose your protein for recovery:</div>
 
-<li>
-<input type="checkbox">
-<strong>OR beef & bean bowl:</strong>  
-<br>
-<span class="portion">200–250g lean beef mince</span>  
-+ <span class="portion">½ tin kidney beans</span>  
-+ <span class="portion">½ tin chopped tomatoes</span>
-</li>
-</ul>
-<p class="note">
-Heavier training day → higher noodle portion.  
-Rest/cardio day → beans only, no noodles.
-</p>
-</section>
+  <details>
+    <summary>Lean Beef Mince</summary>
+    <div class="recipe-content">
+      <b>The "Lean Power" Beef Bowl:</b><br>
+      1. Brown 150-200g mince; drain and discard excess fat.<br>
+      2. Add 1/2 diced onion and garlic. Cook until soft.<br>
+      3. Season with salt, pepper, and paprika.<br>
+      4. <b>Add 60g-80g fresh spinach</b> at the end until wilted.<br>
+      <div class="sides">
+        <b>Serve with:</b> 1 slice of wholemeal toast or 40g (dry weight) boiled rice.
+      </div>
+    </div>
+  </details>
 
-<section>
-<h2>Evening (After 20:00, If Needed)</h2>
-<ul>
-<li><input type="checkbox"> <span class="portion">1 tin tuna</span></li>
-<li><input type="checkbox"> <span class="portion">1–2 eggs</span></li>
-</ul>
-<p class="note">
-Protein only — no extra carbs this late.
-</p>
-</section>
-
-<section>
-<h2>Daily Rules (Keep It Simple)</h2>
-<ul>
-<li><input type="checkbox"> Protein at every meal</li>
-<li><input type="checkbox"> Carbs focused around training</li>
-<li><input type="checkbox"> Don’t stack bread + noodles + beans</li>
-<li><input type="checkbox"> Measure carbs once, then eyeball</li>
-<li><input type="checkbox"> Water: 2.5–3.5L/day</li>
-</ul>
+  <details>
+    <summary>Grilled Chicken</summary>
+    <div class="recipe-content">
+      <b>Simple Juicy Chicken:</b><br>
+      1. Portion out <span class="measurement">150g-200g</span> of chicken breast.<br>
+      2. Flatten to even thickness (use a rolling pin or heavy pan).<br>
+      3. Rub with salt, pepper, and paprika.<br>
+      4. Sear in a hot pan for 5-6 mins per side.<br>
+      5. Let it rest for 3 mins before slicing.<br>
+      <div class="sides">
+        <b>Serve with:</b> 80g steamed broccoli or peas and 1 slice of wholemeal toast.
+      </div>
+    </div>
+  </details>
 </section>
 
 </body>
