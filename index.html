@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Daily Timing — Toning Schedule</title>
+<title>Daily Timing — Toning & Language Hub</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   :root {
@@ -11,6 +11,7 @@
     --card: #ffffff;
     --text: #333;
     --accent: #d35400;
+    --study: #8E44AD; 
   }
   body {
     font-family: Arial, sans-serif;
@@ -26,15 +27,42 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
   }
   nav a {
     text-decoration: none;
     color: var(--primary);
     font-weight: bold;
   }
-  h1 { color: var(--primary); margin-bottom: 5px; }
-  .subtitle { color: #666; margin-bottom: 25px; }
+  /* Style for the active/star link */
+  nav a.active {
+    color: var(--study) !important;
+  }
 
+  h1 { color: var(--primary); margin-bottom: 5px; }
+  .subtitle { color: #666; margin-bottom: 20px; }
+
+  /* Toggle Button Styling */
+  .study-btn {
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    background-color: var(--study);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    box-shadow: 0 4px 6px rgba(142, 68, 173, 0.2);
+    transition: all 0.3s ease;
+  }
+  .study-btn.off {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+    box-shadow: none;
+  }
+
+  /* Timeline Blocks */
   .time-block {
     background: var(--card);
     border-left: 5px solid var(--primary);
@@ -45,13 +73,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: opacity 0.3s ease;
   }
+  
+  /* Learning Block Specific Styling */
+  .time-block.study {
+    border-left-color: var(--study);
+    background: #fdfaff;
+  }
+  .study .time-label { color: var(--study); }
+
   .time-label { font-weight: bold; color: var(--primary); min-width: 80px; }
   .activity { flex-grow: 1; padding-left: 15px; }
   .activity-title { font-weight: bold; display: block; }
   .activity-desc { font-size: 0.9em; color: #666; }
 
-  /* Tips Styling */
+  input[type="checkbox"] { width: 22px; height: 22px; cursor: pointer; }
+
+  /* Performance Tips */
   .tips-section {
     margin-top: 30px;
     padding: 20px;
@@ -60,81 +99,155 @@
     border: 1px solid #d4e6f1;
   }
   .tips-section h3 { color: var(--primary); margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-  .tip-item { margin-bottom: 15px; display: flex; align-items: flex-start; }
-  .tip-icon { margin-right: 15px; font-size: 1.2em; }
-  .tip-text b { color: var(--accent); }
-  
-  input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; }
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html">Timing</a>
-  <a href="workout.html">Workout</a>
-  <a href="list.html">Shopping</a>
   <a href="plan.html">Diet Plan</a>
+  <a href="list.html">Shopping</a>
+  <a href="workout.html">Workout</a>
+  <a href="routine.html" class="active">★ Language Learning</a>
 </nav>
 
 <h1>Daily Schedule</h1>
-<p class="subtitle">Optimize your performance and recovery.</p>
+<p class="subtitle">Toning focus with 8-hour language immersion.</p>
+
+<button id="toggleStudy" class="study-btn">Language Mode: ON</button>
 
 <div class="timeline">
   <div class="time-block">
     <div class="time-label">08:00</div>
-    <div class="activity"><span class="activity-title">Breakfast</span><span class="activity-desc">Eggs & Wholemeal Toast</span></div>
-    <input type="checkbox" id="t-1">
+    <div class="activity"><span class="activity-title">Breakfast</span><span class="activity-desc">Poached Eggs & Wholemeal Toast</span></div>
+    <input type="checkbox" id="check-1">
+  </div>
+
+  <div class="time-block study">
+    <div class="time-label">08:30</div>
+    <div class="activity"><span class="activity-title">🇷🇺 Russian (2h)</span><span class="activity-desc">Duolingo: Cyrillic & Foundation</span></div>
+    <input type="checkbox" id="check-2">
+  </div>
+
+  <div class="time-block study">
+    <div class="time-label">11:00</div>
+    <div class="activity"><span class="activity-title">🇪🇸 Spanish (2h)</span><span class="activity-desc">Gemini Tutor: Grammar & Drills</span></div>
+    <input type="checkbox" id="check-3">
   </div>
 
   <div class="time-block">
-    <div class="time-label">12:30</div>
+    <div class="time-label">13:00</div>
     <div class="activity"><span class="activity-title">Lunch</span><span class="activity-desc">Tuna Sandwich (High Protein)</span></div>
-    <input type="checkbox" id="t-2">
+    <input type="checkbox" id="check-4">
+  </div>
+
+  <div class="time-block study">
+    <div class="time-label">13:30</div>
+    <div class="activity"><span class="activity-title">🇪🇸 Spanish (1h)</span><span class="activity-desc">Google Translate: Live Conversation Practice</span></div>
+    <input type="checkbox" id="check-5">
+  </div>
+
+  <div class="time-block study">
+    <div class="time-label">14:30</div>
+    <div class="activity"><span class="activity-title">🇷🇺 Russian (1h)</span><span class="activity-desc">YouTube: RussianPod101 Listening</span></div>
+    <input type="checkbox" id="check-6">
   </div>
 
   <div class="time-block" style="border-left-color: var(--accent);">
     <div class="time-label">15:30</div>
     <div class="activity"><span class="activity-title">Fueling Window</span><span class="activity-desc">50g Oats + 80g Berries + Milk</span></div>
-    <input type="checkbox" id="t-3">
+    <input type="checkbox" id="check-7">
+  </div>
+
+  <div class="time-block study">
+    <div class="time-label">16:00</div>
+    <div class="activity"><span class="activity-title">🇪🇸 Spanish (1h)</span><span class="activity-desc">Passive Audio / Podcasts</span></div>
+    <input type="checkbox" id="check-8">
   </div>
 
   <div class="time-block" style="background: var(--primary); color: white;">
     <div class="time-label" style="color: white;">17:30</div>
-    <div class="activity"><span class="activity-title">Training Window</span><span class="activity-desc" style="color: #e0e0e0;">Barbell & EZ-Bar Session</span></div>
-    <input type="checkbox" id="t-4">
+    <div class="activity"><span class="activity-title">Training Window</span><span class="activity-desc" style="color: #e0e0e0;">Toning & Muscle Focus</span></div>
+    <input type="checkbox" id="check-9">
+  </div>
+
+  <div class="time-block study">
+    <div class="time-label">18:30</div>
+    <div class="activity"><span class="activity-title">Journaling (1h)</span><span class="activity-desc">Google Docs: Both Languages Recap</span></div>
+    <input type="checkbox" id="check-10">
   </div>
 
   <div class="time-block">
-    <div class="time-label">19:00</div>
-    <div class="activity"><span class="activity-title">Dinner</span><span class="activity-desc">Beef/Chicken + Spinach + Sides</span></div>
-    <input type="checkbox" id="t-5">
+    <div class="time-label">19:30</div>
+    <div class="activity"><span class="activity-title">Dinner</span><span class="activity-desc">Beef/Chicken Recovery Meal</span></div>
+    <input type="checkbox" id="check-11">
   </div>
 </div>
 
-<div class="tips-section">
-  <h3>Performance & Tone Tips</h3>
+<div class="tips-section" style="border-color: #34495e;">
+  <h3 style="color: #34495e;">Nightly Recovery Protocol</h3>
   
   <div class="tip-item">
-    <div class="tip-icon">☕</div>
-    <div class="tip-text"><b>Caffeine Cut-off:</b> Stop all caffeine by <b>14:00</b>. Since you train at 17:30, caffeine later than this will ruin your deep sleep, which is when toning actually happens. Limit to <b>2 coffees max</b> per day.</div>
+    <div class="tip-icon">🌙</div>
+    <div class="tip-text"><b>21:00 Night Shift:</b> All screens must transition to warm filters. This protects the <b>Growth Hormone</b> release needed for your toning goals.</div>
   </div>
 
   <div class="tip-item">
-    <div class="tip-icon">💧</div>
-    <div class="tip-text"><b>Salt & Water:</b> If you feel "flat" during your workout, add a small pinch of salt to your pre-workout oats. Aim for <b>3L of water</b> to keep muscles looking full rather than soft.</div>
+    <div class="tip-icon">📺</div>
+    <div class="tip-text"><b>22:30 TV Silence:</b> No movies or gaming after this time. Your brain needs 90 minutes of "Darkness" to process the <b>8 hours of Russian & Spanish</b> you learned today.</div>
   </div>
 
   <div class="tip-item">
-    <div class="tip-icon">🚶</div>
-    <div class="tip-text"><b>The 10-Min Rule:</b> After your 19:00 dinner, take a <b>10-minute light walk</b>. This improves insulin sensitivity, helping your body send the dinner nutrients to your muscles instead of storing them as fat.</div>
+    <div class="tip-icon">💤</div>
+    <div class="tip-text"><b>The Movie Rule:</b> If you must have background noise, use a <b>Sleep Timer</b> for white noise or a fan. Avoid movies; the light/sound spikes ruin deep muscle recovery.</div>
   </div>
 </div>
 
 <script>
-  function save() { document.querySelectorAll('input[type="checkbox"]').forEach(cb => localStorage.setItem(cb.id, cb.checked)); }
-  function load() { document.querySelectorAll('input[type="checkbox"]').forEach(cb => { if (localStorage.getItem(cb.id) === 'true') cb.checked = true; }); }
-  document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener('change', save));
-  window.onload = load;
+  // Elements
+  const toggleBtn = document.getElementById('toggleStudy');
+  const studyBlocks = document.querySelectorAll('.study');
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  // 1. Toggle Functionality
+  function setLanguageMode(isVisible) {
+    studyBlocks.forEach(block => {
+      block.style.display = isVisible ? 'flex' : 'none';
+    });
+    toggleBtn.innerText = isVisible ? 'Language Mode: ON' : 'Language Mode: OFF';
+    if(isVisible) {
+      toggleBtn.classList.remove('off');
+    } else {
+      toggleBtn.classList.add('off');
+    }
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    const currentState = studyBlocks[0].style.display !== 'none';
+    const newState = !currentState;
+    setLanguageMode(newState);
+    localStorage.setItem('studyMode', newState);
+  });
+
+  // 2. Checkbox Persistence
+  function saveChecks() {
+    checkboxes.forEach(cb => localStorage.setItem(cb.id, cb.checked));
+  }
+
+  function loadAll() {
+    // Load Checkboxes
+    checkboxes.forEach(cb => {
+      if (localStorage.getItem(cb.id) === 'true') cb.checked = true;
+    });
+    // Load Toggle State
+    const savedMode = localStorage.getItem('studyMode');
+    if (savedMode !== null) {
+      setLanguageMode(savedMode === 'true');
+    }
+  }
+
+  checkboxes.forEach(cb => cb.addEventListener('change', saveChecks));
+  window.onload = loadAll;
 </script>
 
 </body>
