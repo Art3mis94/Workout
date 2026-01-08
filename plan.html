@@ -11,6 +11,7 @@
     --card: #ffffff;
     --text: #333;
     --accent: #d35400;
+    --study: #8E44AD; 
   }
   body {
     font-family: Arial, sans-serif;
@@ -26,12 +27,18 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
   }
   nav a {
     text-decoration: none;
     color: var(--primary);
     font-weight: bold;
   }
+  /* Style for the active/star link */
+  nav a.active {
+    color: var(--study) !important;
+  }
+
   h1 { color: var(--primary); }
   section {
     background: var(--card);
@@ -97,9 +104,10 @@
 
 <nav>
   <a href="index.html">Timing</a>
-  <a href="workout.html">Workout</a>
-  <a href="list.html">Shopping</a>
   <a href="plan.html">Diet Plan</a>
+  <a href="list.html">Shopping</a>
+  <a href="workout.html">Workout</a>
+  <a href="routine.html" class="active">★ Language Learning</a>
 </nav>
 
 <h1>Daily Toning Meal Plan</h1>
@@ -115,17 +123,17 @@
 </section>
 
 <section>
-  <span class="meal-slot">Pre-Workout (3:30 PM - 4:30 PM)</span>
+  <span class="meal-slot">Pre-Workout Fueling</span>
   <div class="food-item">Fueling Porridge:</div>
   <ul style="list-style: none; padding-left: 0;">
     <li>🥣 <span class="measurement">50g</span> Porridge Oats</li>
-    <li>🥛 <span class="measurement">250ml–300ml</span> Milk (Semi-skimmed or Unsweetened Almond)</li>
+    <li>🥛 <span class="measurement">250ml–300ml</span> Milk (Semi-skimmed or Almond)</li>
     <li>🫐 <span class="measurement">80g</span> Frozen Mixed Berries</li>
   </ul>
 </section>
 
 <section>
-  <span class="meal-slot">Post-Workout Dinner (7:00 PM)</span>
+  <span class="meal-slot">Post-Workout Dinner</span>
   <div class="food-item">Choose your protein for recovery:</div>
 
   <details>
@@ -147,7 +155,7 @@
     <div class="recipe-content">
       <b>Simple Juicy Chicken:</b><br>
       1. Portion out <span class="measurement">150g-200g</span> of chicken breast.<br>
-      2. Flatten to even thickness (use a rolling pin or heavy pan).<br>
+      2. Flatten to even thickness for even cooking.<br>
       3. Rub with salt, pepper, and paprika.<br>
       4. Sear in a hot pan for 5-6 mins per side.<br>
       5. Let it rest for 3 mins before slicing.<br>
