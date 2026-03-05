@@ -20,6 +20,7 @@
     max-width: 800px;
     margin: auto;
     padding: 20px;
+    line-height: 1.4;
   }
   nav {
     display: flex;
@@ -34,7 +35,6 @@
     color: var(--primary);
     font-weight: bold;
   }
-  /* Style for the active/star link */
   nav a.active {
     color: var(--study) !important;
   }
@@ -59,6 +59,7 @@
   .food-item {
     font-size: 1.1em;
     margin-bottom: 10px;
+    font-weight: 500;
   }
   .measurement {
     color: #2c3e50;
@@ -80,7 +81,7 @@
   }
   summary::-webkit-details-marker { display: none; }
   summary:after {
-    content: ' (Tap for Recipe & Sides)';
+    content: ' (Tap for Recipe & Macros)';
     font-size: 0.8em;
     font-weight: normal;
     color: var(--accent);
@@ -97,6 +98,7 @@
     padding-top: 8px;
     border-top: 1px solid #ddd;
     color: #2E4053;
+    font-style: italic;
   }
 </style>
 </head>
@@ -113,13 +115,58 @@
 <h1>Daily Toning Meal Plan</h1>
 
 <section>
-  <span class="meal-slot">Breakfast</span>
+  <span class="meal-slot">Breakfast Options</span>
   <div class="food-item">Poached Eggs (2-3) on 2 slices Wholemeal Toast</div>
+  
+  <details>
+    <summary>Overnight Blueberry & Matcha Power Bowl</summary>
+    <div class="recipe-content">
+      <b>The "Lean Muscle" Night-Before Prep:</b><br>
+      1. Whisk <span class="measurement">1-2 tsp Matcha</span> into <span class="measurement">250g-300g Greek Yogurt</span> (0% or 2%).<br>
+      2. Stir in <span class="measurement">1 tbsp Chia</span> and <span class="measurement">1 tbsp Ground Flax</span>.<br>
+      3. Add <span class="measurement">2-3 tbsp water/milk</span> (crucial for seed hydration).<br>
+      4. Top with <span class="measurement">80g Frozen Blueberries</span>. Do not stir yet.<br>
+      5. Refrigerate overnight. Stir and enjoy in the morning.<br>
+      <div class="sides">
+        <b>No Matcha yet?</b> Swap for 1 tsp Cinnamon or 1 tbsp Cocoa powder. 
+        <br><b>Stats:</b> ~35g Protein | High Fiber.
+      </div>
+    </div>
+  </details>
 </section>
 
 <section>
-  <span class="meal-slot">Lunch</span>
+  <span class="meal-slot">Lunch Options</span>
   <div class="food-item">Tuna Sandwich on Wholemeal Bread</div>
+
+  <details>
+    <summary>Pea Protein "Power Shaker" (With Powder)</summary>
+    <div class="recipe-content">
+      <b>Plant-Based Muscle Support:</b><br>
+      1. Add <span class="measurement">300ml Milk</span> to shaker (add liquid first to prevent clumps).<br>
+      2. Add <span class="measurement">1 scoop (30g) Pea Protein Isolate</span>.<br>
+      3. Add <span class="measurement">1 tbsp Peanut Butter</span> and <span class="measurement">1/2 cup Frozen Berries</span>.<br>
+      4. Shake vigorously. <br>
+      <div class="sides">
+        <b>Night Before:</b> Pea protein is very absorbent. Add an extra 50ml of milk if prepping overnight to keep it liquid.
+        <br><b>Protein:</b> ~35-40g.
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary>Whole Food "Dairy-Max" Smoothie (No Powder)</summary>
+    <div class="recipe-content">
+      <b>The Whole Food Alternative:</b><br>
+      1. Blend <span class="measurement">200ml Milk</span>, <span class="measurement">150g Greek Yogurt</span>, and <span class="measurement">100g Cottage Cheese</span>.<br>
+      2. Add <span class="measurement">1 Banana</span> or 80g berries for flavor.<br>
+      3. Blend until the cottage cheese is completely smooth/creamy.<br>
+      <div class="sides">
+        <b>Prep Note:</b> Great for "Night Before" as flavors meld. Shake well before drinking.
+        <br><b>Protein:</b> ~30-35g.
+      </div>
+    </div>
+  </details>
 </section>
 
 <section>
@@ -154,13 +201,12 @@
     <summary>Grilled Chicken</summary>
     <div class="recipe-content">
       <b>Simple Juicy Chicken:</b><br>
-      1. Portion out <span class="measurement">150g-200g</span> of chicken breast.<br>
-      2. Flatten to even thickness for even cooking.<br>
-      3. Rub with salt, pepper, and paprika.<br>
-      4. Sear in a hot pan for 5-6 mins per side.<br>
-      5. Let it rest for 3 mins before slicing.<br>
+      1. Portion out <span class="measurement">150g-200g</span> chicken breast.<br>
+      2. Flatten for even cooking; rub with salt, pepper, and paprika.<br>
+      3. Sear in hot pan for 5-6 mins per side.<br>
+      4. Let it rest for 3 mins before slicing.<br>
       <div class="sides">
-        <b>Serve with:</b> 80g steamed broccoli or peas and 1 slice of wholemeal toast.
+        <b>Serve with:</b> 80g steamed broccoli/peas and 1 slice wholemeal toast.
       </div>
     </div>
   </details>
