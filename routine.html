@@ -12,6 +12,8 @@
     --text: #333;
     --accent: #d35400;
     --study: #8E44AD; 
+    --holiday: #27ae60;
+    --xbox: #107C10;
   }
   body {
     font-family: Arial, sans-serif;
@@ -29,57 +31,48 @@
     border-bottom: 1px solid #ccc;
     flex-wrap: wrap;
   }
-  nav a {
-    text-decoration: none;
-    color: var(--primary);
-    font-weight: bold;
-  }
-  /* Standardized active link style */
-  nav a.active {
-    color: var(--study) !important;
-  }
+  nav a { text-decoration: none; color: var(--primary); font-weight: bold; }
+  nav a.active { color: var(--study) !important; }
   
   h1 { color: var(--primary); margin-bottom: 5px; }
   .subtitle { color: #666; margin-bottom: 25px; }
 
-  section {
+  details {
     background: var(--card);
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
-  .meal-slot {
+  summary {
+    padding: 20px;
     font-weight: bold;
-    color: var(--primary);
-    display: block;
+    font-size: 1.2em;
+    cursor: pointer;
+    background: #fff;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  summary::-webkit-details-marker { display: none; }
+  
+  .routine-container { padding: 10px 20px 20px 20px; }
+
+  section {
+    padding: 12px;
     margin-bottom: 10px;
-    text-transform: uppercase;
-    font-size: 0.85em;
-    letter-spacing: 1px;
+    border-radius: 5px;
+    border-left: 4px solid #eee;
   }
-  .study-slot {
-    font-weight: bold;
-    color: var(--study);
-    display: block;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-size: 0.85em;
-    letter-spacing: 1px;
-  }
-  .food-item, .study-item {
-    font-size: 1.1em;
-    margin-bottom: 5px;
-  }
-  .learning-card {
-    border-left: 5px solid var(--study);
-    background: #fdfaff;
-  }
-  .training-card {
-    background: #ebf5fb; 
-    border-left: 5px solid var(--primary);
-  }
+  .time-slot { font-weight: bold; display: block; font-size: 0.8em; text-transform: uppercase; letter-spacing: 1px; }
+  .meal-slot { color: var(--primary); }
+  .study-slot { color: var(--study); }
+  .xbox-slot { color: var(--xbox); }
+  
+  .food-item, .study-item { font-size: 1.05em; margin-top: 5px; }
+  
+  .learning-card { border-left-color: var(--study); background: #fdfaff; }
+  .training-card { border-left-color: var(--primary); background: #ebf5fb; }
+  .xbox-card { border-left-color: var(--xbox); background: #f0f7f0; }
 </style>
 </head>
 <body>
@@ -93,62 +86,78 @@
 </nav>
 
 <h1>Daily Routine</h1>
-<p class="subtitle">The 8-hour language split integrated with your toning schedule.</p>
+<p class="subtitle">Optimized for Term-Time commitments & 6'3" Toning goals.</p>
 
-<section>
-  <span class="meal-slot">08:00 AM — Breakfast</span>
-  <div class="food-item">Poached Eggs (2-3) on 2 slices Wholemeal Toast</div>
-</section>
+<details open>
+  <summary style="border-left: 8px solid var(--study);">📚 Term-Time (Work/Study Focus)</summary>
+  <div class="routine-container">
+    
+    <section class="learning-card">
+      <span class="time-slot study-slot">06:00 AM — Morning Kickstart</span>
+      <div class="study-item">🟢 <b>Duolingo:</b> Quick 15-min Russian/Spanish streak while eating breakfast bowl.</div>
+    </section>
 
-<section class="learning-card">
-  <span class="study-slot">08:30 AM — Russian Foundation (2 Hours)</span>
-  <div class="study-item">🇷🇺 <b>Duolingo:</b> Focus on Cyrillic & Grammar units.</div>
-</section>
+    <section style="background: #f9f9f9;">
+      <span class="time-slot" style="color:#999;">06:30 AM – 04:00 PM — Busy Block</span>
+      <div class="study-item">Core daily commitments. <i>Passive immersion via Spanish/Russian music during transitions.</i></div>
+    </section>
 
-<section class="learning-card">
-  <span class="study-slot">11:00 AM — Spanish Foundation (2 Hours)</span>
-  <div class="study-item">🇪🇸 <b>Google Learn/Gemini:</b> Sentence structure & Verb drills.</div>
-</section>
+    <section class="learning-card">
+      <span class="time-slot study-slot">04:00 PM — Language Foundation (1 Hour)</span>
+      <div class="study-item">🇪🇸/🇷🇺 Intensive Grammar drills & Gemini translation practice.</div>
+    </section>
 
-<section>
-  <span class="meal-slot">01:00 PM — Lunch</span>
-  <div class="food-item">Tuna Sandwich on Wholemeal Bread</div>
-</section>
+    <section class="training-card">
+      <span class="time-slot meal-slot">05:00 PM — Gym Window</span>
+      <div class="food-item">Lifting Routine + Incline Treadmill (M/Th). <i>High-protein Smoothie to follow.</i></div>
+    </section>
 
-<section class="learning-card">
-  <span class="study-slot">01:30 PM — Spanish Practice (1 Hour)</span>
-  <div class="study-item">📱 <b>Google Translate:</b> Conversation & Voice mode.</div>
-</section>
+    <section class="learning-card">
+      <span class="time-slot study-slot">06:45 PM — Language Immersion (2 Hours)</span>
+      <div class="study-item">📺 Watching YouTube/Media in target languages while having Dinner.</div>
+    </section>
 
-<section class="learning-card">
-  <span class="study-slot">02:30 PM — Russian Immersion (1 Hour)</span>
-  <div class="study-item">📺 <b>YouTube:</b> Listening practice & Cultural videos.</div>
-</section>
+    <section class="xbox-card">
+      <span class="time-slot xbox-slot">08:45 PM — Xbox / Gaming</span>
+      <div class="study-item">🎮 Relax. <b>Pro Tip:</b> Set game language or subtitles to Spanish to keep immersion active.</div>
+    </section>
 
-<section style="border-left: 5px solid var(--accent);">
-  <span class="meal-slot" style="color: var(--accent);">03:30 PM — Pre-Workout Fuel</span>
-  <div class="food-item">🥣 Fueling Porridge (Oats, Milk, & Berries)</div>
-</section>
+    <section class="learning-card">
+      <span class="time-slot study-slot">10:00 PM — Final Review & Prep</span>
+      <div class="study-item">📝 Journaling & <b>Duolingo</b> to close the night. Prep Matcha bowl.</div>
+    </section>
+  </div>
+</details>
 
-<section class="learning-card">
-  <span class="study-slot">04:00 PM — Spanish Immersion (1 Hour)</span>
-  <div class="study-item">🎧 <b>Audio:</b> Spanish music or podcasts while prepping.</div>
-</section>
+<details>
+  <summary style="border-left: 8px solid var(--holiday);">🏖️ Holiday (Active & Flexible)</summary>
+  <div class="routine-container">
+    <section class="training-card">
+      <span class="time-slot meal-slot">08:00 AM — Early Session</span>
+      <div class="food-item">Gym session done early. Eat Matcha bowl immediately after.</div>
+    </section>
 
-<section class="training-card">
-  <span class="meal-slot">05:00 PM — Workout Window</span>
-  <div class="food-item"><b>Toning Routine:</b> Consistent intensity with Barbell/EZ-Bar.</div>
-</section>
+    <section class="learning-card">
+      <span class="time-slot study-slot">10:00 AM — Intensive Study (4 Hours)</span>
+      <div class="study-item">🇪🇸/🇷🇺 Deep focus blocks (Duolingo, Reading, Grammar).</div>
+    </section>
 
-<section class="learning-card">
-  <span class="study-slot">06:30 PM — Daily Review (1 Hour)</span>
-  <div class="study-item">📝 <b>Google Docs:</b> Journaling in target languages.</div>
-</section>
+    <section class="xbox-card">
+      <span class="time-slot xbox-slot">02:00 PM — Mid-Day Xbox Block</span>
+      <div class="study-item">Gaming break & Lunch.</div>
+    </section>
 
-<section>
-  <span class="meal-slot">07:30 PM — Post-Workout Dinner</span>
-  <div class="food-item">Lean Beef Mince Bowl OR Grilled Chicken + Greens</div>
-</section>
+    <section class="learning-card">
+      <span class="time-slot study-slot">04:00 PM — Immersion & Media (4 Hours)</span>
+      <div class="study-item">YouTube, Netflix, and target language journaling.</div>
+    </section>
+
+    <section>
+      <span class="time-slot meal-slot">08:30 PM — Evening Meal & Prep</span>
+      <div class="food-item">Dinner + prep next day's bowl.</div>
+    </section>
+  </div>
+</details>
 
 </body>
 </html>
