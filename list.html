@@ -35,8 +35,6 @@
     color: var(--primary);
     font-weight: bold;
   }
-  
-  /* Highlight for the Language page link */
   nav a.active {
     color: var(--study) !important;
   }
@@ -44,7 +42,6 @@
   h1 { color: var(--primary); margin-bottom: 5px; }
   .subtitle { color: #666; margin-bottom: 20px; }
 
-  /* Toggle Button Styling from Index */
   .study-btn {
     margin-bottom: 25px;
     padding: 12px 20px;
@@ -72,7 +69,6 @@
     border: 1px solid #ccc;
   }
 
-  /* Specific styling for study-related shopping sections */
   section.study {
     border-left: 5px solid var(--study);
     background: #fdfaff;
@@ -112,6 +108,15 @@
     color: #999;
   }
 
+  .tag {
+    font-size: 0.7em;
+    background: #e8f4f8;
+    color: #2E86C1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+
   .reset-btn {
     display: block;
     width: 100%;
@@ -138,18 +143,20 @@
 </nav>
 
 <h1>Shopping List</h1>
-<p class="subtitle">Fuel for toning and brain-power for 8h study.</p>
+<p class="subtitle">Fuel for 6'3" lean muscle & 8h intensive study.</p>
 
 <button id="toggleStudy" class="study-btn">Language Mode: ON</button>
 
 <section>
-  <h3>Protein & Dairy</h3>
+  <h3>Muscle Building Proteins</h3>
   <ul>
-    <li><input type="checkbox" id="shop-1"><label for="shop-1">Eggs (Large Pack)</label></li>
+    <li><input type="checkbox" id="shop-1"><label for="shop-1">Greek Yogurt (0% or 2% Fat)</label> <span class="tag">Bulk</span></li>
+    <li><input type="checkbox" id="shop-cp"><label for="shop-cp">Pea Protein Isolate</label></li>
+    <li><input type="checkbox" id="shop-cc"><label for="shop-cc">Cottage Cheese (Low Fat)</label></li>
     <li><input type="checkbox" id="shop-2"><label for="shop-2">Chicken Breasts</label></li>
-    <li><input type="checkbox" id="shop-3"><label for="shop-3">Lean Beef Mince (5% fat)</label></li>
+    <li><input type="checkbox" id="shop-3"><label for="shop-3">Lean Beef Mince (5% Fat)</label></li>
     <li><input type="checkbox" id="shop-4"><label for="shop-4">Canned Tuna (in Spring Water)</label></li>
-    <li><input type="checkbox" id="shop-5"><label for="shop-5">Milk (Semi-skimmed or Almond)</label></li>
+    <li><input type="checkbox" id="shop-eggs"><label for="shop-eggs">Eggs (Large Pack)</label></li>
   </ul>
 </section>
 
@@ -157,28 +164,31 @@
   <h3>Learning Supplies</h3>
   <ul>
     <li><input type="checkbox" id="shop-study-1"><label for="shop-study-1">High-quality Notebook (for Journaling)</label></li>
-    <li><input type="checkbox" id="shop-study-2"><label for="shop-study-2">Blue Light Filter Glasses (for Gaming/Study)</label></li>
-    <li><input type="checkbox" id="shop-study-3"><label for="shop-study-3">Post-it Notes (labeling items in Russian/Spanish)</label></li>
+    <li><input type="checkbox" id="shop-study-2"><label for="shop-study-2">Blue Light Filter Glasses</label></li>
+    <li><input type="checkbox" id="shop-study-3"><label for="shop-study-3">Post-it Notes (Russian/Spanish)</label></li>
   </ul>
 </section>
 
 <section>
   <h3>Produce & Frozen</h3>
   <ul>
+    <li><input type="checkbox" id="shop-7"><label for="shop-7">Blueberries (Frozen)</label></li>
+    <li><input type="checkbox" id="shop-ban"><label for="shop-ban">Bananas (for freezing)</label></li>
     <li><input type="checkbox" id="shop-6"><label for="shop-6">Fresh Spinach (Big Bag)</label></li>
-    <li><input type="checkbox" id="shop-7"><label for="shop-7">Mixed Berries (Frozen)</label></li>
-    <li><input type="checkbox" id="shop-8"><label for="shop-8">Avocados</label></li>
     <li><input type="checkbox" id="shop-9"><label for="shop-9">Onions & Garlic</label></li>
     <li><input type="checkbox" id="shop-10"><label for="shop-10">Broccoli or Peas</label></li>
   </ul>
 </section>
 
 <section>
-  <h3>Bakery & Pantry</h3>
+  <h3>Pantry & Superfoods</h3>
   <ul>
-    <li><input type="checkbox" id="shop-11"><label for="shop-11">Wholemeal Bread</label></li>
+    <li><input type="checkbox" id="shop-matcha"><label for="shop-matcha">Matcha Powder</label></li>
+    <li><input type="checkbox" id="shop-seeds"><label for="shop-seeds">Chia & Ground Flaxseeds</label></li>
+    <li><input type="checkbox" id="shop-pb"><label for="shop-pb">Peanut Butter (Natural)</label></li>
+    <li><input type="checkbox" id="shop-5"><label for="shop-5">Whole Milk</label></li>
     <li><input type="checkbox" id="shop-12"><label for="shop-12">Porridge Oats</label></li>
-    <li><input type="checkbox" id="shop-13"><label for="shop-13">Green Tea (for Study Focus)</label></li>
+    <li><input type="checkbox" id="shop-11"><label for="shop-11">Wholemeal Bread</label></li>
   </ul>
 </section>
 
@@ -188,7 +198,6 @@
   const toggleBtn = document.getElementById('toggleStudy');
   const studySections = document.querySelectorAll('.study');
 
-  // 1. Language Mode Toggle (Syncs with Index)
   function setLanguageMode(isVisible) {
     studySections.forEach(section => {
       section.style.display = isVisible ? 'block' : 'none';
@@ -208,7 +217,6 @@
     localStorage.setItem('studyMode', newState);
   });
 
-  // 2. Save/Load Checkbox States
   function saveState() {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(cb => {
@@ -217,13 +225,11 @@
   }
 
   function loadState() {
-    // Load Checkboxes
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(cb => {
       if (localStorage.getItem(cb.id) === 'true') cb.checked = true;
     });
 
-    // Load Toggle State
     const savedMode = localStorage.getItem('studyMode');
     if (savedMode !== null) {
       setLanguageMode(savedMode === 'true');
